@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>B.U.R.N Project</title>
+    <!-- Bootstrap -->
+    <!-- minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!--  compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!--  Bootstrap End -->
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <!--  Redirection if parameters in url -->
+    <script type="text/javascript"> 
+      var urlParam = /url=([^&]+)/.exec(window.location.href)[1];
+      if (urlParam) {
+         alert("param = " + atob(urlParam));
+         window.location.href = atob(urlParam);
+      } 
+    </script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="page-header">
+        <h1>B.U.R.N Project</h1>
+      </div>
+      
+      <blockquote>
+         <p>[...] un rallongeur d'URL, c'est comme les raccourciseur d'URL mais l'inverse et qui ne stock aucune url, le but étant de pouvoir poster des
+           lien interdit sur facebook, et autre site qui censure les url (excluant twitter car les url vont être crissement longue), et vu que aucun lien 
+           ne seras stocker sur le site, aucun site est interdit. Si jamais sa interesse certains...</p>
+       <footer>Jérôme NekoGirl Paquet sur le groupe Facebook <a href="http://www.facebook.com/groups/OBar18/" target="_blank">O-Bar</a></footer>
+      </blockquote>
+
+      <div class="form-group">
+        <label for="url">Lien:</label>
+        <input type="text" class="form-control" id="lien" value="http://">
+      </div> 
+      <br>
+      <div class="form-group">
+        <button onclick="urlEncode();selectText('newUrl')" class="center-block btn btn-danger">B.U.R.N IT</button>
+      </div>
+    
+        <label class="control-label">Encrypted Url:</label> <br>
+        <pre data-toggle="tooltip" title="Appuyer sur Ctrl+C pour copier" id="newUrl" onmouseover="selectText('newUrl');" ></pre> 
+   
+    </div>
+    <div class="navbar navbar-fixed-bottom"><p class="love" style="font-family: 'Indie Flower', cursive; text-align: center;
+">Made with <i class="fa fa-heart"></i> by <a href="http://rickynotaro.com">Ricky Notaro-Garcia</a></p></div>
+
+    <script type="text/javascript">
+    // Base64 url encoding
+    function urlEncode() {
+      var original = document.getElementById("lien").value;
+      var longUrl = window.location.href + "?url=" + btoa(original);
+      document.getElementById("newUrl").innerHTML =  longUrl;
+      //copyToClipboard(longUrl);
+
+      // Give focus to the encoded url to activate the tooltip
+      document.getElementById("newUrl").focus();
+    }
+    // Tooltip Activation
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip({'placement': 'top'});
+    })
+    // Text AutoSelect
+     function selectText(containerid) {
+        if (document.selection) {
+            var range = document.body.createTextRange();
+            range.moveToElementText(document.getElementById(containerid));
+            range.select();
+        } else if (window.getSelection) {
+            var range = document.createRange();
+            range.selectNode(document.getElementById(containerid));
+            window.getSelection().addRange(range);
+        }
+    }
+    // Copy Promnt
+    function copyToClipboard(text) {
+    window.prompt("Copier dans le presse-papier: Ctrl+C, Enter", text);
+  }
+    </script>
+  
+
+  </body>
+</html>
