@@ -54,8 +54,9 @@
         <pre data-toggle="tooltip" title="Appuyer sur Ctrl+C pour copier" id="newUrl" onmouseover="selectText('newUrl');" ></pre> 
    
     </div>
-    <div class="navbar navbar-fixed-bottom"><p class="love" style="font-family: 'Indie Flower', cursive; text-align: center;
-">Made with <i class="fa fa-heart"></i> by <a target="_blank" href="http://rickynotaro.com">Ricky Notaro-Garcia</a> - <i class="fa fa-github"></i><a target="_blank" href="https://github.com/RickyNotaro/B.U.R.N/"> GitHub</a></p></div>
+    <br>
+    <p class="love" style="font-family: 'Indie Flower', cursive; text-align: center;
+">Made with <i class="fa fa-heart"></i> by <a target="_blank" href="http://rickynotaro.com">Ricky Notaro-Garcia</a> - <i class="fa fa-github"></i><a target="_blank" href="https://github.com/RickyNotaro/B.U.R.N/"> GitHub</a></p>
 
     <script type="text/javascript">
     // Base64 url encoding
@@ -63,7 +64,6 @@
       var original = document.getElementById("lien").value;
       var longUrl = window.location.href + "?url=" + btoa(original);
       document.getElementById("newUrl").innerHTML =  longUrl;
-      //copyToClipboard(longUrl);
 
       // Give focus to the encoded url to activate the tooltip
       document.getElementById("newUrl").focus();
@@ -84,10 +84,6 @@
             window.getSelection().addRange(range);
         }
     }
-    // Copy Promnt
-    function copyToClipboard(text) {
-    window.prompt("Copier dans le presse-papier: Ctrl+C, Enter", text);
-  }
     </script>
   
 
