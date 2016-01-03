@@ -23,8 +23,9 @@
     <script type="text/javascript"> 
       var urlParam = /url=([^&]+)/.exec(window.location.href)[1];
       if (urlParam) {
+        urlParam = decodeURIComponent(urlParam);
          window.location.href = atob(urlParam);
-      } 
+      }
     </script>
   </head>
   <body>
